@@ -38,3 +38,7 @@ I made a web page that allows the user to save notes. With the notes you can add
 `https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Notes%20page`
 
 ## Video
+
+
+https://user-images.githubusercontent.com/99032604/199378785-37ec1990-8cdf-47e6-b88d-44fb63787054.mp4
+
