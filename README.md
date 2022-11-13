@@ -35,7 +35,7 @@ I made a web page that allows the user to save notes. With the notes you can add
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Notes%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Notes%20Page`
 
 ## Video
 
