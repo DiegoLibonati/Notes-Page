@@ -23,19 +23,9 @@ I made a web page that allows the user to save notes. With the notes you can add
 2. CSS3
 3. HTML5
 
-## Galery
-
-![Notes-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/notes-0.jpg)
-
-![Notes-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/notes-1.jpg)
-
-![Notes-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/notes-2.jpg)
-
-![Notes-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/notes-3.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Notes%20Page`
+[`https://www.diegolibonati.com.ar/#/project/43`](https://www.diegolibonati.com.ar/#/project/43)
 
 ## Video
 
