@@ -13,13 +13,20 @@
 2. Join to the correct path of the clone
 3. Open index.html in your favorite navigator
 
+---
+
+1. Clone the repository
+2. Join to the correct path of the clone
+3. Execute: `yarn install`
+4. Execute: `yarn dev`
+
 ## Description
 
 I made a web page that allows the user to save notes. With the notes you can add a new one, edit an existing one and delete a specific note. Every time the user performs an action an alert will pop up.
 
 ## Technologies used
 
-1. Javascript
+1. Typescript
 2. CSS3
 3. HTML5
 

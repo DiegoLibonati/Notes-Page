@@ -1,0 +1,123 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: #F05A28;
+}
+
+.header_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+    .header_container h2{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        background: #F7931E;
+        color: #fff;
+        padding: .5rem;
+        opacity: 0;
+        visibility: hidden;
+        border-radius: 1rem;
+        transition: opacity 1.3s ease, visibility 1.3s ease;
+    }
+
+        .header_container h2.show-data{
+            visibility: visible;
+            opacity: 1;
+            color: #fff;
+        }
+
+    .header_container button{
+        width: 3rem;
+        border: none;
+        background: #F7931E;
+        color: #fff;
+        font-size: 2rem;
+        padding: .5rem;
+        box-shadow: .2rem .2rem .2rem .2rem solid #fff;
+        cursor: pointer;
+        border-radius: 100%
+    }
+
+.main_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+    .section_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        width: 100%;
+        height: 100%;
+    }
+
+        .card{
+            width: 30rem;
+            height: 30rem;
+            margin: 1rem;
+        }
+
+            .card_header{
+                display: flex;
+                justify-content: end;
+                width: 100%;
+                height: 13%;
+                background-color: #F7931E;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+            }
+
+                .card_header button{
+                    background-color: transparent;
+                    border: none;
+                    margin: 1rem;
+                }
+
+                .card_header button i, .btnFinishEdit {
+                    font-size: 1.5rem;
+                    color: white;
+                    cursor: pointer;
+                }
+
+            .card_container{
+                height: 85%;
+                width: 100%;
+                overflow: hidden;
+            }
+
+                .card_container textarea{
+                    background-color: transparent;
+                    width: 100%;
+                    height: 100%;
+                    resize: none;
+                    font-size: 1.5rem;
+                    background-color: white;
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                    padding: 0.3rem;
+                    outline: none;
+                }
