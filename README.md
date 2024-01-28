@@ -36,7 +36,7 @@ I made a web page that allows the user to save notes. With the notes you can add
 
 ## Video
 
-https://user-images.githubusercontent.com/99032604/199378785-37ec1990-8cdf-47e6-b88d-44fb63787054.mp4
+https://github.com/DiegoLibonati/Notes-Page/assets/99032604/f32f74f0-54c2-452f-a5e3-18388fe7ea71
 
 ## Documentation
 
