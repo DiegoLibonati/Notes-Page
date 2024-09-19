@@ -1,4 +1,4 @@
-# Notes-Page
+# Notes Page
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ I made a web page that allows the user to save notes. With the notes you can add
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/43`](https://www.diegolibonati.com.ar/#/project/43)
+[`https://www.diegolibonati.com.ar/#/project/Notes-Page`](https://www.diegolibonati.com.ar/#/project/Notes-Page)
 
 ## Video
 
