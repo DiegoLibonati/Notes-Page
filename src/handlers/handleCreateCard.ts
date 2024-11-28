@@ -1,7 +1,7 @@
-import { deleteCard } from "./deleteCard";
-import { editCard } from "./editCard";
+import { handleDeleteCard } from "./handleDeleteCard";
+import { handleEditCard } from "./handleEditCard";
 
-export const createCard = (id: string, text: string): HTMLElement => {
+export const handleCreateCard = (id: string, text: string): HTMLElement => {
   const parent = document.createElement("article");
 
   parent.setAttribute("class", "card");
@@ -20,8 +20,11 @@ export const createCard = (id: string, text: string): HTMLElement => {
   buttonEdit.setAttribute("class", "btnEdit");
   buttonDelete.setAttribute("class", "btnDelete");
 
-  buttonEdit.addEventListener("click", (e) => editCard(e))
-  buttonDelete.addEventListener("click", (e) => deleteCard(e))
+  buttonEdit.setAttribute("aria-label", "button edit");
+  buttonDelete.setAttribute("aria-label", "button delete");
+
+  buttonEdit.addEventListener("click", (e) => handleEditCard(e));
+  buttonDelete.addEventListener("click", (e) => handleDeleteCard(e));
 
   const iconEdit = document.createElement("i");
   const iconDelete = document.createElement("i");
