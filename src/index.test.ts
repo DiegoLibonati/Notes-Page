@@ -1,29 +1,24 @@
 import { screen } from "@testing-library/dom";
 import user from "@testing-library/user-event";
 
-import fs from "fs";
-import path from "path";
-
 import { LOCAL_STORAGE_CARDS_KEY } from "./constants/constants";
 
-import { LOCAL_STORAGE_MOCKS } from "./tests/jest.setup";
-
-const INITIAL_HTML: string = fs.readFileSync(
-  path.resolve(__dirname, "../index.html"),
-  "utf8"
-);
+import { LOCAL_STORAGE_MOCKS, OFFICIAL_BODY } from "./tests/jest.setup";
 
 beforeEach(() => {
-  jest.resetModules();
+  jest.useFakeTimers();
   jest.resetAllMocks();
-  const body = INITIAL_HTML.match(/<body[^>]*>([\s\S]*?)<\/body>/i)![1];
 
-  document.body.innerHTML = body;
+  document.body.innerHTML = OFFICIAL_BODY;
+
   require("./index.ts");
   document.dispatchEvent(new Event("DOMContentLoaded"));
 });
 
 afterEach(() => {
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
+
   document.body.innerHTML = "";
 });
 
@@ -37,8 +32,6 @@ test("It must create and add a note when '+' is clicked, add it to localStorage 
   const userEvent = user.setup({
     advanceTimers: jest.advanceTimersByTime,
   });
-
-  jest.useFakeTimers();
 
   const cardsContainer = document.querySelector(".section_container");
   const btnAddNote = screen.getByRole("button", { name: /add note/i });
@@ -64,20 +57,16 @@ test("It must create and add a note when '+' is clicked, add it to localStorage 
   expect(alert).toBeInTheDocument();
   expect(alert.classList.contains("show-data")).toBeTruthy();
 
-  await jest.advanceTimersByTimeAsync(1000);
+  jest.advanceTimersByTime(1000);
 
   expect(alert).toBeEmptyDOMElement();
   expect(alert.classList.contains("show-data")).toBeFalsy();
-
-  jest.useRealTimers();
 });
 
 test("It should remove a note when the trash can is clicked and an alert should pop up.", async () => {
   const userEvent = user.setup({
     advanceTimers: jest.advanceTimersByTime,
   });
-
-  jest.useFakeTimers();
 
   const cardsContainer = document.querySelector(".section_container");
   const btnAddNote = screen.getByRole("button", { name: /add note/i });
@@ -109,12 +98,10 @@ test("It should remove a note when the trash can is clicked and an alert should 
   expect(alert).toBeInTheDocument();
   expect(alert.classList.contains("show-data")).toBeTruthy();
 
-  await jest.advanceTimersByTimeAsync(1000);
+  jest.advanceTimersByTime(1000);
 
   expect(alert).toBeEmptyDOMElement();
   expect(alert.classList.contains("show-data")).toBeFalsy();
-
-  jest.useRealTimers();
 });
 
 test("It should edit a note when you click on the edit icon and then on the cross to finish editing. An alert should also pop up.", async () => {
@@ -122,8 +109,6 @@ test("It should edit a note when you click on the edit icon and then on the cros
     advanceTimers: jest.advanceTimersByTime,
   });
   const text = "Hola pepe";
-
-  jest.useFakeTimers();
 
   const cardsContainer = document.querySelector(".section_container");
   const btnAddNote = screen.getByRole("button", { name: /add note/i });
@@ -169,10 +154,8 @@ test("It should edit a note when you click on the edit icon and then on the cros
   expect(alert).toBeInTheDocument();
   expect(alert.classList.contains("show-data")).toBeTruthy();
 
-  await jest.advanceTimersByTimeAsync(1000);
+  jest.advanceTimersByTime(1000);
 
   expect(alert).toBeEmptyDOMElement();
   expect(alert.classList.contains("show-data")).toBeFalsy();
-
-  jest.useRealTimers();
 });

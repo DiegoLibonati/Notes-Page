@@ -1,11 +1,12 @@
 import { handleCreateCard } from "./handlers/handleCreateCard";
 import { handleSetAlert } from "./handlers/handleSetAlert";
 import { handleAddCart } from "./handlers/handleAddCart";
-import { getCardsFromLocalStorage } from "./helpers/getCardsFromLocalStorage";
 
-import { btnAddNote, cardsContainer } from "./constants/elements";
+import { getCardsFromLocalStorage } from "./helpers/getCardsFromLocalStorage";
+import { getElements } from "./helpers/getElements";
 
 export const loadCards = (): void => {
+  const { cardsContainer } = getElements();
   const cards = getCardsFromLocalStorage();
 
   cardsContainer.innerHTML = "";
@@ -18,6 +19,8 @@ export const loadCards = (): void => {
 };
 
 const onInit = () => {
+  const { btnAddNote } = getElements();
+
   loadCards();
 
   btnAddNote.addEventListener("click", handleAddCart);

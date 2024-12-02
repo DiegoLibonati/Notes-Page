@@ -1,6 +1,8 @@
-import { alertH2 } from "../constants/elements";
+import { getElements } from "../helpers/getElements";
 
 export const handleSetAlert = (message: string): void => {
+  const { alertH2 } = getElements();
+
   alertH2.textContent = message;
   alertH2.classList.add("show-data");
 

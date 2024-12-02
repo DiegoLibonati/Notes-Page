@@ -4,13 +4,16 @@ import { Card } from "../entities/vite-env";
 
 import { handleCreateCard } from "./handleCreateCard";
 import { handleSetAlert } from "./handleSetAlert";
+
 import { setLocalStorage } from "../helpers/setLocalStorage";
 import { getCardsFromLocalStorage } from "../helpers/getCardsFromLocalStorage";
+import { getElements } from "../helpers/getElements";
 
 import { LOCAL_STORAGE_CARDS_KEY } from "../constants/constants";
-import { cardsContainer } from "../constants/elements";
 
 export const handleAddCart = () => {
+  const { cardsContainer } = getElements();
+
   const cardElement = handleCreateCard(uuidv4(), "Ingrese texto");
   const cards = getCardsFromLocalStorage();
 
