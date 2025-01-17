@@ -1,7 +1,7 @@
 export const getElements = () => ({
   btnAddNote: document.querySelector(
-    ".header_container button"
+    ".header button"
   ) as HTMLButtonElement,
-  cardsContainer: document.querySelector(".section_container") as HTMLElement,
-  alertH2: document.querySelector(".header_container h2") as HTMLHeadingElement,
+  cardsContainer: document.querySelector(".cards") as HTMLElement,
+  alertH2: document.querySelector(".header h2") as HTMLHeadingElement,
 });

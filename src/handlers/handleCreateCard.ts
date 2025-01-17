@@ -9,7 +9,7 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
 
   const cardHeader = document.createElement("div");
 
-  cardHeader.setAttribute("class", "card_header");
+  cardHeader.setAttribute("class", "card__header");
 
   const buttonEdit = document.createElement("button");
   const buttonDelete = document.createElement("button");
@@ -17,8 +17,8 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
   buttonEdit.setAttribute("type", "button");
   buttonDelete.setAttribute("type", "button");
 
-  buttonEdit.setAttribute("class", "btnEdit");
-  buttonDelete.setAttribute("class", "btnDelete");
+  buttonEdit.setAttribute("class", "card__btn__edit");
+  buttonDelete.setAttribute("class", "card__btn__delete");
 
   buttonEdit.setAttribute("aria-label", "button edit");
   buttonDelete.setAttribute("aria-label", "button delete");
@@ -40,7 +40,7 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
 
   const cardContent = document.createElement("div");
 
-  cardContent.setAttribute("class", "card_container");
+  cardContent.setAttribute("class", "card__content");
 
   const textArea = document.createElement("textarea");
   textArea.rows = 5;
