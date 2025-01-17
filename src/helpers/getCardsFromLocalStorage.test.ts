@@ -2,13 +2,17 @@ import { getCardsFromLocalStorage } from "./getCardsFromLocalStorage";
 
 import { LOCAL_STORAGE_CARDS_KEY } from "../constants/constants";
 
-import { LOCAL_STORAGE_MOCKS } from "../tests/jest.setup";
+import { mocksLocalStorage } from "../tests/jest.constants";
 
-test("The getItem of localStorage must be called with key of cards.", () => {
-  getCardsFromLocalStorage();
+describe("getCardsFromLocalStorage.ts", () => {
+  describe("General Tests.", () => {
+    test("The getItem of localStorage must be called with key of cards.", () => {
+      getCardsFromLocalStorage();
 
-  expect(LOCAL_STORAGE_MOCKS.getItem).toHaveBeenCalledTimes(1);
-  expect(LOCAL_STORAGE_MOCKS.getItem).toHaveBeenCalledWith(
-    LOCAL_STORAGE_CARDS_KEY
-  );
+      expect(mocksLocalStorage.getItem).toHaveBeenCalledTimes(1);
+      expect(mocksLocalStorage.getItem).toHaveBeenCalledWith(
+        LOCAL_STORAGE_CARDS_KEY
+      );
+    });
+  });
 });
