@@ -59,12 +59,12 @@ describe("index.ts", () => {
         JSON.stringify([{ id: card?.id, text: card?.textContent }])
       );
       expect(alert).toBeInTheDocument();
-      expect(alert.classList.contains("alert--show")).toBeTruthy();
+      expect(alert.classList.contains("header__alert--show")).toBeTruthy();
 
       jest.advanceTimersByTime(1000);
 
       expect(alert).toBeEmptyDOMElement();
-      expect(alert.classList.contains("alert--show")).toBeFalsy();
+      expect(alert.classList.contains("header__alert--show")).toBeFalsy();
     });
 
     test("It should remove a note when the trash can is clicked and an alert should pop up.", async () => {
@@ -102,12 +102,12 @@ describe("index.ts", () => {
       const alert = screen.getByText("1 note has been successfully deleted ✅");
 
       expect(alert).toBeInTheDocument();
-      expect(alert.classList.contains("alert--show")).toBeTruthy();
+      expect(alert.classList.contains("header__alert--show")).toBeTruthy();
 
       jest.advanceTimersByTime(1000);
 
       expect(alert).toBeEmptyDOMElement();
-      expect(alert.classList.contains("alert--show")).toBeFalsy();
+      expect(alert.classList.contains("header__alert--show")).toBeFalsy();
     });
 
     test("It should edit a note when you click on the edit icon and then on the cross to finish editing. An alert should also pop up.", async () => {
@@ -160,12 +160,12 @@ describe("index.ts", () => {
       const alert = screen.getByText("1 note has been successfully edited ✅");
 
       expect(alert).toBeInTheDocument();
-      expect(alert.classList.contains("alert--show")).toBeTruthy();
+      expect(alert.classList.contains("header__alert--show")).toBeTruthy();
 
       jest.advanceTimersByTime(1000);
 
       expect(alert).toBeEmptyDOMElement();
-      expect(alert.classList.contains("alert--show")).toBeFalsy();
+      expect(alert.classList.contains("header__alert--show")).toBeFalsy();
     });
   });
 });

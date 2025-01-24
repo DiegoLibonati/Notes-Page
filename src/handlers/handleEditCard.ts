@@ -23,7 +23,7 @@ export const handleEditCard = (e: MouseEvent) => {
 
   const buttonFinishEdit = document.createElement("button");
 
-  buttonFinishEdit.setAttribute("class", "card__btn__finish__edit");
+  buttonFinishEdit.setAttribute("class", "card__header-btn card__header-btn-edit-finish");
   buttonFinishEdit.setAttribute("type", "button");
   buttonFinishEdit.setAttribute("aria-label", "finish edit");
   buttonFinishEdit.textContent = "X";

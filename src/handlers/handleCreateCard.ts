@@ -17,8 +17,11 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
   buttonEdit.setAttribute("type", "button");
   buttonDelete.setAttribute("type", "button");
 
-  buttonEdit.setAttribute("class", "card__btn__edit");
-  buttonDelete.setAttribute("class", "card__btn__delete");
+  buttonEdit.setAttribute("class", "card__header-btn card__header-btn-edit");
+  buttonDelete.setAttribute(
+    "class",
+    "card__header-btn card__header-btn-delete"
+  );
 
   buttonEdit.setAttribute("aria-label", "button edit");
   buttonDelete.setAttribute("aria-label", "button delete");
@@ -43,6 +46,9 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
   cardContent.setAttribute("class", "card__content");
 
   const textArea = document.createElement("textarea");
+
+  textArea.setAttribute("class", "card__content-textarea");
+
   textArea.rows = 5;
   textArea.cols = 2;
   textArea.disabled = true;
