@@ -47,7 +47,7 @@ export const handleCreateCard = (id: string, text: string): HTMLElement => {
 
   const textArea = document.createElement("textarea");
 
-  textArea.setAttribute("class", "card__content-textarea");
+  textArea.setAttribute("class", "card__textarea");
 
   textArea.rows = 5;
   textArea.cols = 2;
