@@ -2,7 +2,7 @@ import { getCardsFromLocalStorage } from "./getCardsFromLocalStorage";
 
 import { LOCAL_STORAGE_CARDS_KEY } from "../constants/constants";
 
-import { mocksLocalStorage } from "../tests/jest.constants";
+import { mocksLocalStorage } from "../../tests/jest.constants";
 
 describe("getCardsFromLocalStorage.ts", () => {
   describe("General Tests.", () => {

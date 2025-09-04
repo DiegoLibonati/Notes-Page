@@ -3,7 +3,7 @@ import user from "@testing-library/user-event";
 
 import { LOCAL_STORAGE_CARDS_KEY } from "./constants/constants";
 
-import { mocksLocalStorage, OFFICIAL_BODY } from "./tests/jest.constants";
+import { mocksLocalStorage, OFFICIAL_BODY } from "../tests/jest.constants";
 
 describe("index.ts", () => {
   describe("General Tests.", () => {
