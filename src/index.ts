@@ -1,9 +1,9 @@
-import { handleCreateCard } from "./handlers/handleCreateCard";
-import { handleSetAlert } from "./handlers/handleSetAlert";
-import { handleAddCart } from "./handlers/handleAddCart";
+import { handleCreateCard } from "@src/handlers/handleCreateCard";
+import { handleSetAlert } from "@src/handlers/handleSetAlert";
+import { handleAddCart } from "@src/handlers/handleAddCart";
 
-import { getCardsFromLocalStorage } from "./helpers/getCardsFromLocalStorage";
-import { getElements } from "./helpers/getElements";
+import { getCardsFromLocalStorage } from "@src/helpers/getCardsFromLocalStorage";
+import { getElements } from "@src/helpers/getElements";
 
 export const loadCards = (): void => {
   const { cardsContainer } = getElements();

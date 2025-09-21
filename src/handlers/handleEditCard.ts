@@ -1,10 +1,10 @@
-import { Card } from "../entities/vite-env";
+import { Card } from "@src/entities/vite-env";
 
-import { handleSetAlert } from "./handleSetAlert";
-import { setLocalStorage } from "../helpers/setLocalStorage";
-import { getCardsFromLocalStorage } from "../helpers/getCardsFromLocalStorage";
+import { handleSetAlert } from "@src/handlers/handleSetAlert";
+import { setLocalStorage } from "@src/helpers/setLocalStorage";
+import { getCardsFromLocalStorage } from "@src/helpers/getCardsFromLocalStorage";
 
-import { LOCAL_STORAGE_CARDS_KEY } from "../constants/constants";
+import { LOCAL_STORAGE_CARDS_KEY } from "@src/constants/constants";
 
 export const handleEditCard = (e: MouseEvent) => {
   const cards = getCardsFromLocalStorage();

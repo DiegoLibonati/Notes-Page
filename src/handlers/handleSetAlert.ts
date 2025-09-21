@@ -1,4 +1,4 @@
-import { getElements } from "../helpers/getElements";
+import { getElements } from "@src/helpers/getElements";
 
 export const handleSetAlert = (message: string): void => {
   const { alertH2 } = getElements();

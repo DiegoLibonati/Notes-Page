@@ -1,5 +1,5 @@
-import { handleDeleteCard } from "./handleDeleteCard";
-import { handleEditCard } from "./handleEditCard";
+import { handleDeleteCard } from "@src/handlers/handleDeleteCard";
+import { handleEditCard } from "@src/handlers/handleEditCard";
 
 export const handleCreateCard = (id: string, text: string): HTMLElement => {
   const parent = document.createElement("article");
