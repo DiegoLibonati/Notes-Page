@@ -22,6 +22,7 @@ I made a web page that allows the user to save notes. With the notes you can add
 1. Typescript
 2. CSS3
 3. HTML5
+4. Vite
 
 ## Libraries used
 
