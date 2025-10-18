@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+
+.header__alert {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 1rem;
+  transition: opacity 1.3s ease, visibility 1.3s ease;
+}
+
+.header__alert--show {
+  visibility: visible;
+  opacity: 1;
+  color: var(--white-color);
+}
+
+.header__btn-add {
+  width: 3rem;
+  border: none;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  font-size: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem solid var(--white-color);
+  cursor: pointer;
+  border-radius: 100%;
+}

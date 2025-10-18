@@ -1,0 +1,50 @@
+.note {
+  width: 30rem;
+  height: 30rem;
+  margin: 1rem;
+}
+
+.note__header {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  height: 13%;
+  background-color: var(--secondary-color);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.note__header-btn {
+  background-color: transparent;
+  border: none;
+  margin: 1rem;
+}
+
+.note__header-btn-edit,
+.note__header-btn-edit-finish,
+.note__header-btn-delete,
+.note__header-btn-edit i,
+.note__header-btn-delete i {
+  font-size: 1.5rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.note__content {
+  height: 85%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.note__textarea {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  font-size: 1.5rem;
+  background-color: var(--white-color);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0.3rem;
+  outline: none;
+}
