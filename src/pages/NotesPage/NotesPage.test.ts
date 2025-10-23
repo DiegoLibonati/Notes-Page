@@ -1,4 +1,4 @@
-import { screen, waitFor } from "@testing-library/dom";
+import { screen } from "@testing-library/dom";
 import user from "@testing-library/user-event";
 
 import { Note } from "@src/entities/app";

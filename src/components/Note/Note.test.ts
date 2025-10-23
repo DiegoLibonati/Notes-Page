@@ -10,16 +10,12 @@ type RenderComponent = {
   props: { onClickEdit: jest.Mock; onClickDelete: jest.Mock } & NoteProps;
 };
 
-const renderComponent = (props: NoteProps): RenderComponent => {
-  const noteProps = {
-    ...props,
-    onClickEdit: jest.fn(),
-    onClickDelete: jest.fn(),
-  };
-
-  const container = Note(noteProps);
+const renderComponent = (
+  props: { onClickEdit: jest.Mock; onClickDelete: jest.Mock } & NoteProps
+): RenderComponent => {
+  const container = Note(props);
   document.body.appendChild(container);
-  return { container: container, props: noteProps };
+  return { container: container, props: props };
 };
 
 describe("Note.ts", () => {
@@ -36,7 +32,7 @@ describe("Note.ts", () => {
 
   describe("General Tests.", () => {
     test("It should render the component structure", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Test note content",
         onClickEdit: mockOnClickEdit,
@@ -50,7 +46,7 @@ describe("Note.ts", () => {
     });
 
     test("It should return HTMLDivElement", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Test note",
         onClickEdit: mockOnClickEdit,
@@ -63,7 +59,7 @@ describe("Note.ts", () => {
     });
 
     test("It should render all required elements", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Test note",
         onClickEdit: mockOnClickEdit,
@@ -88,7 +84,7 @@ describe("Note.ts", () => {
     });
 
     test("It should have correct CSS classes", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Test note",
         onClickEdit: mockOnClickEdit,
@@ -109,7 +105,7 @@ describe("Note.ts", () => {
 
   describe("Props Rendering Tests.", () => {
     test("It should use correct id", () => {
-      const props: NoteProps = {
+      const props = {
         id: "unique-note-id",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -122,7 +118,7 @@ describe("Note.ts", () => {
     });
 
     test("It should display children content in textarea", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "This is my note content",
         onClickEdit: mockOnClickEdit,
@@ -138,7 +134,7 @@ describe("Note.ts", () => {
 
     test("It should render children as textarea value", () => {
       const content = "Note with multiple lines\nSecond line\nThird line";
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: content,
         onClickEdit: mockOnClickEdit,
@@ -155,7 +151,7 @@ describe("Note.ts", () => {
 
   describe("Textarea Tests.", () => {
     test("It should have textarea with disabled attribute", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Disabled note",
         onClickEdit: mockOnClickEdit,
@@ -171,7 +167,7 @@ describe("Note.ts", () => {
     });
 
     test("It should have textarea with correct rows and cols", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -187,7 +183,7 @@ describe("Note.ts", () => {
     });
 
     test("It should have textarea with correct class", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -204,7 +200,7 @@ describe("Note.ts", () => {
 
   describe("Button Tests.", () => {
     test("It should render edit button with correct attributes", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -222,7 +218,7 @@ describe("Note.ts", () => {
     });
 
     test("It should render delete button with correct attributes", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -242,7 +238,7 @@ describe("Note.ts", () => {
     });
 
     test("It should render edit button with icon", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -260,7 +256,7 @@ describe("Note.ts", () => {
     });
 
     test("It should render delete button with icon", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -282,7 +278,7 @@ describe("Note.ts", () => {
 
   describe("Edit Click Event Tests.", () => {
     test("It should call onClickEdit when edit button is clicked", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -299,7 +295,7 @@ describe("Note.ts", () => {
     });
 
     test("It should pass event and id to onClickEdit", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-123",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -319,7 +315,7 @@ describe("Note.ts", () => {
     });
 
     test("It should call onClickEdit with correct id parameter", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "specific-note-id",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -337,7 +333,7 @@ describe("Note.ts", () => {
     });
 
     test("It should call onClickEdit multiple times on multiple clicks", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -358,7 +354,7 @@ describe("Note.ts", () => {
 
   describe("Delete Click Event Tests.", () => {
     test("It should call onClickDelete when delete button is clicked", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -377,7 +373,7 @@ describe("Note.ts", () => {
     });
 
     test("It should pass event and id to onClickDelete", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-456",
         children: "Note content",
         onClickEdit: mockOnClickEdit,
@@ -399,7 +395,7 @@ describe("Note.ts", () => {
     });
 
     test("It should call onClickDelete with correct id parameter", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "delete-test-id",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -419,7 +415,7 @@ describe("Note.ts", () => {
     });
 
     test("It should call onClickDelete multiple times on multiple clicks", async () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Note",
         onClickEdit: mockOnClickEdit,
@@ -441,14 +437,14 @@ describe("Note.ts", () => {
 
   describe("Multiple Notes Tests.", () => {
     test("It should render multiple notes independently", () => {
-      const props1: NoteProps = {
+      const props1 = {
         id: "note-1",
         children: "First note",
         onClickEdit: jest.fn(),
         onClickDelete: jest.fn(),
       };
 
-      const props2: NoteProps = {
+      const props2 = {
         id: "note-2",
         children: "Second note",
         onClickEdit: jest.fn(),
@@ -468,14 +464,14 @@ describe("Note.ts", () => {
     });
 
     test("It should maintain separate content for each note", () => {
-      const props1: NoteProps = {
+      const props1 = {
         id: "note-1",
         children: "Content A",
         onClickEdit: jest.fn(),
         onClickDelete: jest.fn(),
       };
 
-      const props2: NoteProps = {
+      const props2 = {
         id: "note-2",
         children: "Content B",
         onClickEdit: jest.fn(),
@@ -493,14 +489,14 @@ describe("Note.ts", () => {
     });
 
     test("It should have unique ids for each note", () => {
-      const props1: NoteProps = {
+      const props1 = {
         id: "unique-1",
         children: "Note 1",
         onClickEdit: jest.fn(),
         onClickDelete: jest.fn(),
       };
 
-      const props2: NoteProps = {
+      const props2 = {
         id: "unique-2",
         children: "Note 2",
         onClickEdit: jest.fn(),
@@ -516,7 +512,7 @@ describe("Note.ts", () => {
 
   describe("Different IDs Tests.", () => {
     test("It should handle simple string id", () => {
-      const props: NoteProps = {
+      const props = {
         id: "simple",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -529,7 +525,7 @@ describe("Note.ts", () => {
     });
 
     test("It should handle id with dashes", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-with-dashes",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -542,7 +538,7 @@ describe("Note.ts", () => {
     });
 
     test("It should handle id with underscores", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note_with_underscores",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -555,7 +551,7 @@ describe("Note.ts", () => {
     });
 
     test("It should handle numeric id", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-123",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -570,7 +566,7 @@ describe("Note.ts", () => {
 
   describe("Content Tests.", () => {
     test("It should handle empty content", () => {
-      const props: NoteProps = {
+      const props = {
         id: "empty-note",
         children: "",
         onClickEdit: mockOnClickEdit,
@@ -586,7 +582,7 @@ describe("Note.ts", () => {
 
     test("It should handle long content", () => {
       const longContent = "This is a very long note content ".repeat(20);
-      const props: NoteProps = {
+      const props = {
         id: "long-note",
         children: longContent,
         onClickEdit: mockOnClickEdit,
@@ -602,7 +598,7 @@ describe("Note.ts", () => {
 
     test("It should handle multiline content", () => {
       const multilineContent = "Line 1\nLine 2\nLine 3";
-      const props: NoteProps = {
+      const props = {
         id: "multiline-note",
         children: multilineContent,
         onClickEdit: mockOnClickEdit,
@@ -617,7 +613,7 @@ describe("Note.ts", () => {
     });
 
     test("It should handle special characters in content", () => {
-      const props: NoteProps = {
+      const props = {
         id: "special-note",
         children: "Content & Special <chars>",
         onClickEdit: mockOnClickEdit,
@@ -634,7 +630,7 @@ describe("Note.ts", () => {
 
   describe("DOM Structure Tests.", () => {
     test("It should have correct header structure", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -651,7 +647,7 @@ describe("Note.ts", () => {
     });
 
     test("It should nest content inside note", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -668,7 +664,7 @@ describe("Note.ts", () => {
     });
 
     test("It should have buttons inside header", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -688,7 +684,7 @@ describe("Note.ts", () => {
 
   describe("Accessibility Tests.", () => {
     test("It should have aria-label on edit button", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -703,7 +699,7 @@ describe("Note.ts", () => {
     });
 
     test("It should have aria-label on delete button", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
@@ -720,7 +716,7 @@ describe("Note.ts", () => {
     });
 
     test("It should be keyboard accessible", () => {
-      const props: NoteProps = {
+      const props = {
         id: "note-1",
         children: "Content",
         onClickEdit: mockOnClickEdit,
