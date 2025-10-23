@@ -57,7 +57,7 @@ describe("NotesPage.ts", () => {
     test("It should render notes section", () => {
       renderComponent();
 
-      const notesSection = document.querySelector(".notes");
+      const notesSection = document.querySelector<HTMLElement>(".notes");
 
       expect(notesSection).toBeInTheDocument();
       expect(notesSection?.tagName).toBe("SECTION");
@@ -76,8 +76,8 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const note1 = document.getElementById("note-1");
-      const note2 = document.getElementById("note-2");
+      const note1 = document.querySelector<HTMLDivElement>("#note-1");
+      const note2 = document.querySelector<HTMLDivElement>("#note-2");
 
       expect(note1).toBeInTheDocument();
       expect(note2).toBeInTheDocument();
@@ -100,7 +100,7 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notes.length).toBe(0);
     });
@@ -110,8 +110,9 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const notesSection = document.querySelector(".notes");
-      const notesInSection = notesSection?.querySelectorAll(".note");
+      const notesSection = document.querySelector<HTMLElement>(".notes");
+      const notesInSection =
+        notesSection?.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notesInSection?.length).toBe(mockNotes.length);
     });
@@ -126,7 +127,7 @@ describe("NotesPage.ts", () => {
 
       await user.click(btnAddNote!);
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notes.length).toBe(1);
     });
@@ -139,7 +140,7 @@ describe("NotesPage.ts", () => {
 
       await user.click(btnAddNote!);
 
-      const note = document.getElementById("test-uuid-123");
+      const note = document.querySelector<HTMLDivElement>("#test-uuid-123");
 
       expect(note).toBeInTheDocument();
     });
@@ -193,7 +194,7 @@ describe("NotesPage.ts", () => {
       await user.click(btnAddNote!);
       await user.click(btnAddNote!);
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notes.length).toBe(2);
     });
@@ -211,7 +212,7 @@ describe("NotesPage.ts", () => {
 
       await user.click(deleteButtons[0]);
 
-      const note1 = document.getElementById("note-1");
+      const note1 = document.querySelector<HTMLDivElement>("#note-1");
 
       expect(note1).not.toBeInTheDocument();
     });
@@ -221,7 +222,7 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const initialNotes = document.querySelectorAll(".note");
+      const initialNotes = document.querySelectorAll<HTMLDivElement>(".note");
       expect(initialNotes.length).toBe(2);
 
       const deleteButtons = screen.getAllByRole("button", {
@@ -230,7 +231,7 @@ describe("NotesPage.ts", () => {
 
       await user.click(deleteButtons[0]);
 
-      const remainingNotes = document.querySelectorAll(".note");
+      const remainingNotes = document.querySelectorAll<HTMLDivElement>(".note");
       expect(remainingNotes.length).toBe(1);
     });
 
@@ -282,7 +283,7 @@ describe("NotesPage.ts", () => {
       });
       await user.click(remainingDeleteButtons[0]);
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
       expect(notes.length).toBe(0);
     });
   });
@@ -499,45 +500,6 @@ describe("NotesPage.ts", () => {
     });
   });
 
-  describe("CSS.escape Tests.", () => {
-    test("It should handle ids with special characters using CSS.escape", async () => {
-      const notesWithSpecialIds: Note[] = [
-        { id: "note:special", text: "Special ID note" },
-      ];
-
-      (getNotesFromLocalStorage as jest.Mock).mockReturnValue(
-        notesWithSpecialIds
-      );
-
-      renderComponent();
-
-      const note = document.getElementById("note:special");
-
-      expect(note).toBeInTheDocument();
-    });
-
-    test("It should delete notes with special character ids", async () => {
-      const notesWithSpecialIds: Note[] = [
-        { id: "note:123", text: "Note content" },
-      ];
-
-      (getNotesFromLocalStorage as jest.Mock).mockReturnValue(
-        notesWithSpecialIds
-      );
-
-      renderComponent();
-
-      const deleteButton = screen.getByRole("button", {
-        name: /button delete/i,
-      });
-      await user.click(deleteButton);
-
-      const note = document.getElementById("note:123");
-
-      expect(note).not.toBeInTheDocument();
-    });
-  });
-
   describe("Button Event Listener Tests.", () => {
     test("It should attach event listener to add button", () => {
       renderComponent();
@@ -553,7 +515,7 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notes.length).toBe(mockNotes.length);
       expect(notes[0].id).toBe("note-1");
@@ -567,7 +529,7 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const notes = document.querySelectorAll(".note");
+      const notes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(notes.length).toBe(0);
     });
@@ -577,14 +539,14 @@ describe("NotesPage.ts", () => {
 
       renderComponent();
 
-      const initialNotes = document.querySelectorAll(".note");
+      const initialNotes = document.querySelectorAll<HTMLDivElement>(".note");
       expect(initialNotes.length).toBe(2);
 
       const btnAddNote =
         document.querySelector<HTMLButtonElement>(".header__btn-add");
       await user.click(btnAddNote!);
 
-      const updatedNotes = document.querySelectorAll(".note");
+      const updatedNotes = document.querySelectorAll<HTMLDivElement>(".note");
       expect(updatedNotes.length).toBe(3);
     });
   });

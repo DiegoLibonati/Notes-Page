@@ -166,7 +166,7 @@ describe("setAlert.ts", () => {
       setAlert("Alert 1");
 
       jest.advanceTimersByTime(500);
-      
+
       setAlert("Alert 2");
 
       jest.advanceTimersByTime(500);
@@ -235,7 +235,8 @@ describe("setAlert.ts", () => {
 
   describe("Element Query Tests.", () => {
     test("It should query for .header__alert element", () => {
-      const element = document.querySelector(".header__alert");
+      const element =
+        document.querySelector<HTMLHeadingElement>(".header__alert");
 
       setAlert("Test");
 

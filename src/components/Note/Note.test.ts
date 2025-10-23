@@ -68,8 +68,8 @@ describe("Note.ts", () => {
 
       renderComponent(props);
 
-      const header = document.querySelector(".note__header");
-      const content = document.querySelector(".note__content");
+      const header = document.querySelector<HTMLDivElement>(".note__header");
+      const content = document.querySelector<HTMLDivElement>(".note__content");
       const textarea = screen.getByRole("textbox");
       const editButton = screen.getByRole("button", { name: /button edit/i });
       const deleteButton = screen.getByRole("button", {
@@ -93,9 +93,10 @@ describe("Note.ts", () => {
 
       renderComponent(props);
 
-      const header = document.querySelector(".note__header");
-      const content = document.querySelector(".note__content");
-      const textarea = document.querySelector(".note__textarea");
+      const header = document.querySelector<HTMLDivElement>(".note__header");
+      const content = document.querySelector<HTMLDivElement>(".note__content");
+      const textarea =
+        document.querySelector<HTMLTextAreaElement>(".note__textarea");
 
       expect(header).toBeInTheDocument();
       expect(content).toBeInTheDocument();
@@ -248,7 +249,7 @@ describe("Note.ts", () => {
       renderComponent(props);
 
       const editButton = screen.getByRole("button", { name: /button edit/i });
-      const icon = editButton.querySelector("i");
+      const icon = editButton.querySelector<HTMLElement>("i");
 
       expect(icon).toBeInTheDocument();
       expect(icon).toHaveClass("fa-solid");
@@ -268,7 +269,7 @@ describe("Note.ts", () => {
       const deleteButton = screen.getByRole("button", {
         name: /button delete/i,
       });
-      const icon = deleteButton.querySelector("i");
+      const icon = deleteButton.querySelector<HTMLElement>("i");
 
       expect(icon).toBeInTheDocument();
       expect(icon).toHaveClass("fa-solid");
@@ -454,9 +455,9 @@ describe("Note.ts", () => {
       renderComponent(props1);
       renderComponent(props2);
 
-      const note1 = document.getElementById("note-1");
-      const note2 = document.getElementById("note-2");
-      const allNotes = document.querySelectorAll(".note");
+      const note1 = document.querySelector<HTMLDivElement>("#note-1");
+      const note2 = document.querySelector<HTMLDivElement>("#note-2");
+      const allNotes = document.querySelectorAll<HTMLDivElement>(".note");
 
       expect(note1).toBeInTheDocument();
       expect(note2).toBeInTheDocument();
@@ -481,11 +482,11 @@ describe("Note.ts", () => {
       const { container: note1 } = renderComponent(props1);
       const { container: note2 } = renderComponent(props2);
 
-      const textarea1 = note1.querySelector("textarea") as HTMLTextAreaElement;
-      const textarea2 = note2.querySelector("textarea") as HTMLTextAreaElement;
+      const textarea1 = note1.querySelector<HTMLTextAreaElement>("textarea");
+      const textarea2 = note2.querySelector<HTMLTextAreaElement>("textarea");
 
-      expect(textarea1.value).toBe("Content A");
-      expect(textarea2.value).toBe("Content B");
+      expect(textarea1!.value).toBe("Content A");
+      expect(textarea2!.value).toBe("Content B");
     });
 
     test("It should have unique ids for each note", () => {
@@ -639,8 +640,9 @@ describe("Note.ts", () => {
 
       renderComponent(props);
 
-      const header = document.querySelector(".note__header");
-      const buttons = header?.querySelectorAll(".note__header-btn");
+      const header = document.querySelector<HTMLDivElement>(".note__header");
+      const buttons =
+        header?.querySelectorAll<HTMLButtonElement>(".note__header-btn");
 
       expect(header).toBeInTheDocument();
       expect(buttons?.length).toBe(2);
@@ -656,8 +658,8 @@ describe("Note.ts", () => {
 
       const { container } = renderComponent(props);
 
-      const content = container.querySelector(".note__content");
-      const textarea = content?.querySelector("textarea");
+      const content = container.querySelector<HTMLDivElement>(".note__content");
+      const textarea = content?.querySelector<HTMLTextAreaElement>("textarea");
 
       expect(content).toBeInTheDocument();
       expect(textarea).toBeInTheDocument();
@@ -673,9 +675,13 @@ describe("Note.ts", () => {
 
       renderComponent(props);
 
-      const header = document.querySelector(".note__header");
-      const editButton = header?.querySelector(".note__header-btn-edit");
-      const deleteButton = header?.querySelector(".note__header-btn-delete");
+      const header = document.querySelector<HTMLDivElement>(".note__header");
+      const editButton = header?.querySelector<HTMLButtonElement>(
+        ".note__header-btn-edit"
+      );
+      const deleteButton = header?.querySelector<HTMLButtonElement>(
+        ".note__header-btn-delete"
+      );
 
       expect(editButton).toBeInTheDocument();
       expect(deleteButton).toBeInTheDocument();
