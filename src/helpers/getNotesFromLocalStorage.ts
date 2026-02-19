@@ -1,11 +1,11 @@
-import { Note } from "@src/entities/app";
+import type { Note } from "@/types/app";
 
-import { getLocalStorage } from "@src/helpers/getLocalStorage";
+import { getLocalStorage } from "@/helpers/getLocalStorage";
 
-import { LOCAL_STORAGE_NOTES_KEY } from "@src/constants/vars";
+import { LOCAL_STORAGE_NOTES_KEY } from "@/constants/vars";
 
 export const getNotesFromLocalStorage = (): Note[] => {
-  const notes = getLocalStorage<Note[]>(LOCAL_STORAGE_NOTES_KEY);
+  const notes = getLocalStorage(LOCAL_STORAGE_NOTES_KEY) as Note[] | null;
 
-  return notes ? notes : [];
+  return notes ?? [];
 };

@@ -1,14 +1,15 @@
-import { NoteProps } from "@src/entities/props";
+import type { NoteProps } from "@/types/props";
+import type { NoteComponent } from "@/types/components";
 
-import "@src/components/Note/Note.css";
+import "@/components/Note/Note.css";
 
 export const Note = ({
   id,
   children,
   onClickDelete,
   onClickEdit,
-}: NoteProps): HTMLDivElement => {
-  const divRoot = document.createElement("div");
+}: NoteProps): NoteComponent => {
+  const divRoot = document.createElement("div") as NoteComponent;
   divRoot.className = "note";
   divRoot.id = id;
 
@@ -23,7 +24,7 @@ export const Note = ({
     </div>
 
     <div class="note__content">
-        <textarea rows="5" cols="2" disabled="true" class="note__textarea">${children}</textarea>
+        <textarea rows="5" cols="2" disabled class="note__textarea">${children}</textarea>
     </div>
   `;
 
@@ -34,8 +35,21 @@ export const Note = ({
     ".note__header-btn-delete"
   );
 
-  noteBtnEdit?.addEventListener("click", (e) => onClickEdit(e, id));
-  noteBtnDelete?.addEventListener("click", (e) => onClickDelete(e, id));
+  const handleEdit = (e: MouseEvent): void => {
+    onClickEdit(e, id);
+  };
+
+  const handleDelete = (e: MouseEvent): void => {
+    onClickDelete(e, id);
+  };
+
+  noteBtnEdit?.addEventListener("click", handleEdit);
+  noteBtnDelete?.addEventListener("click", handleDelete);
+
+  divRoot.cleanup = (): void => {
+    noteBtnEdit?.removeEventListener("click", handleEdit);
+    noteBtnDelete?.removeEventListener("click", handleDelete);
+  };
 
   return divRoot;
 };
