@@ -6,6 +6,7 @@ import type { Page } from "@/types/pages";
 import { NotesPage } from "@/pages/NotesPage/NotesPage";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockNote, mockNotes } from "@tests/__mocks__/notes.mock";
 
 const renderPage = (): Page => {
   const btnAddNote = document.createElement("button");
@@ -47,11 +48,6 @@ describe("NotesPage", () => {
   });
 
   it("should load and render notes from localStorage", () => {
-    const mockNotes = [
-      { id: "note-1", text: "Test note 1" },
-      { id: "note-2", text: "Test note 2" },
-    ];
-
     mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
 
     renderPage();
@@ -101,8 +97,7 @@ describe("NotesPage", () => {
 
   it("should enable editing when edit button is clicked", async () => {
     const user = userEvent.setup();
-    const mockNotes = [{ id: "note-1", text: "Test note" }];
-    mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
+    mocksLocalStorage.setItem("notes", JSON.stringify([mockNote]));
 
     renderPage();
 
@@ -116,8 +111,7 @@ describe("NotesPage", () => {
 
   it("should show finish edit button when editing", async () => {
     const user = userEvent.setup();
-    const mockNotes = [{ id: "note-1", text: "Test note" }];
-    mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
+    mocksLocalStorage.setItem("notes", JSON.stringify([mockNote]));
 
     renderPage();
 
@@ -130,10 +124,6 @@ describe("NotesPage", () => {
 
   it("should delete note when delete button is clicked", async () => {
     const user = userEvent.setup();
-    const mockNotes = [
-      { id: "note-1", text: "Test note 1" },
-      { id: "note-2", text: "Test note 2" },
-    ];
     mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
 
     renderPage();
@@ -149,10 +139,6 @@ describe("NotesPage", () => {
 
   it("should update localStorage when note is deleted", async () => {
     const user = userEvent.setup();
-    const mockNotes = [
-      { id: "note-1", text: "Test note 1" },
-      { id: "note-2", text: "Test note 2" },
-    ];
     mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
 
     renderPage();
@@ -170,7 +156,6 @@ describe("NotesPage", () => {
   });
 
   it("should cleanup notes and buttons on page cleanup", () => {
-    const mockNotes = [{ id: "note-1", text: "Test note" }];
     mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
 
     const page = renderPage();

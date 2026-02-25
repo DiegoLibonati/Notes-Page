@@ -1,8 +1,7 @@
-import type { Note } from "@/types/app";
-
 import { getNotesFromLocalStorage } from "@/helpers/getNotesFromLocalStorage";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockNotes } from "@tests/__mocks__/notes.mock";
 
 describe("getNotesFromLocalStorage", () => {
   beforeEach(() => {
@@ -14,11 +13,6 @@ describe("getNotesFromLocalStorage", () => {
   });
 
   it("should return notes from localStorage", () => {
-    const mockNotes: Note[] = [
-      { id: "1", text: "Note 1" },
-      { id: "2", text: "Note 2" },
-    ];
-
     mocksLocalStorage.setItem("notes", JSON.stringify(mockNotes));
 
     const result = getNotesFromLocalStorage();

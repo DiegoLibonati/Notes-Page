@@ -76,3 +76,7 @@ For coverage report:
 ```bash
 npm run test:coverage
 ```
+
+## Known Issues
+
+None at the moment.
