@@ -15,10 +15,10 @@ export const Note = ({
 
   divRoot.innerHTML = `
     <div class="note__header">
-        <button type="button" class="note__header-btn note__header-btn-edit" aria-label="button edit">
+        <button type="button" class="note__header-btn note__header-btn-edit" aria-label="Edit note">
             <i class="fa-solid fa-pen-to-square"></i>
         </button>
-        <button type="button" class="note__header-btn note__header-btn-delete" aria-label="button delete">
+        <button type="button" class="note__header-btn note__header-btn-delete" aria-label="Delete note">
             <i class="fa-solid fa-trash"></i>
         </button>
     </div>

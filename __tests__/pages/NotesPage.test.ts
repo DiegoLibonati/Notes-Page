@@ -101,7 +101,7 @@ describe("NotesPage", () => {
 
     renderPage();
 
-    const editButton = screen.getByRole("button", { name: "button edit" });
+    const editButton = screen.getByRole("button", { name: "Edit note" });
     await user.click(editButton);
 
     const textarea =
@@ -115,10 +115,10 @@ describe("NotesPage", () => {
 
     renderPage();
 
-    const editButton = screen.getByRole("button", { name: "button edit" });
+    const editButton = screen.getByRole("button", { name: "Edit note" });
     await user.click(editButton);
 
-    const finishButton = screen.getByRole("button", { name: "finish edit" });
+    const finishButton = screen.getByRole("button", { name: "Finish editing" });
     expect(finishButton).toBeInTheDocument();
   });
 
@@ -129,7 +129,7 @@ describe("NotesPage", () => {
     renderPage();
 
     const deleteButtons = screen.getAllByRole("button", {
-      name: "button delete",
+      name: "Delete note",
     });
     await user.click(deleteButtons[0]!);
 
@@ -144,7 +144,7 @@ describe("NotesPage", () => {
     renderPage();
 
     const deleteButtons = screen.getAllByRole("button", {
-      name: "button delete",
+      name: "Delete note",
     });
     await user.click(deleteButtons[0]!);
 

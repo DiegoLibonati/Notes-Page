@@ -53,7 +53,7 @@ export const NotesPage = (): Page => {
       "note__header-btn note__header-btn-edit-finish";
     buttonFinishEdit.type = "button";
     buttonFinishEdit.textContent = "X";
-    buttonFinishEdit.setAttribute("aria-label", "finish edit");
+    buttonFinishEdit.setAttribute("aria-label", "Finish editing");
 
     target.style.display = "none";
 

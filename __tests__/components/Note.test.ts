@@ -49,10 +49,10 @@ describe("Note Component", () => {
     renderComponent(defaultProps);
 
     expect(
-      screen.getByRole("button", { name: "button edit" })
+      screen.getByRole("button", { name: "Edit note" })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "button delete" })
+      screen.getByRole("button", { name: "Delete note" })
     ).toBeInTheDocument();
   });
 
@@ -60,7 +60,7 @@ describe("Note Component", () => {
     const user = userEvent.setup();
     renderComponent(defaultProps);
 
-    const editButton = screen.getByRole("button", { name: "button edit" });
+    const editButton = screen.getByRole("button", { name: "Edit note" });
     await user.click(editButton);
 
     expect(mockOnClickEdit).toHaveBeenCalledTimes(1);
@@ -74,7 +74,7 @@ describe("Note Component", () => {
     const user = userEvent.setup();
     renderComponent(defaultProps);
 
-    const deleteButton = screen.getByRole("button", { name: "button delete" });
+    const deleteButton = screen.getByRole("button", { name: "Delete note" });
     await user.click(deleteButton);
 
     expect(mockOnClickDelete).toHaveBeenCalledTimes(1);
@@ -90,8 +90,8 @@ describe("Note Component", () => {
 
     note.cleanup?.();
 
-    const editButton = screen.getByRole("button", { name: "button edit" });
-    const deleteButton = screen.getByRole("button", { name: "button delete" });
+    const editButton = screen.getByRole("button", { name: "Edit note" });
+    const deleteButton = screen.getByRole("button", { name: "Delete note" });
 
     await user.click(editButton);
     await user.click(deleteButton);
